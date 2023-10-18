@@ -68,13 +68,6 @@ public class CarSelectionScript : MonoBehaviour
         chooseCar(currentCar);
     }
 
-    //public void playGame()
-    //{
-    //    PlayerPrefs.SetInt("CarSelected", currentCar); // yaha jo car select karke hum game khelenge usko save kar rhe hain taki
-    //                                                   // jab hum game khelne ke baad game mode exit krke waps se game mode m aaye toh wahi car hume mile jo pehle thi
-    //    SceneManager.LoadScene("scene_day"); // using this to switch from one scene to another scene
-    //}
-
     public void playButton()
     {
         StartCoroutine(ActivateCanvasWithDelay());
