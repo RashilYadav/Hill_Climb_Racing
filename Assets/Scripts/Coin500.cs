@@ -10,6 +10,7 @@ public class Coin500 : MonoBehaviour
         {
             ScoreScript.scoreVal += 500;
             //Play Sound
+            SoundScript.PlaySound("coin");
             Destroy(gameObject);
         }
     }

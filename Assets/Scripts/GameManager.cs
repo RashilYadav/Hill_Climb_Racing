@@ -20,6 +20,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void Menu()
+    {
+        SoundScript.PlaySound("Menu_Click");
+        SceneManager.LoadScene("MainScene");
+    }
+
     public void GameOver()
     {
         _gameOverCanvas.SetActive(true);
@@ -30,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        SoundScript.PlaySound("Menu_Click");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         _pauseButton.SetActive(true);
         ScoreScript.scoreVal = 0;

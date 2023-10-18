@@ -8,6 +8,7 @@ public class CollectFuel : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            SoundScript.PlaySound("fuel");
             FuellController.instance.FillFuel();
             Destroy(gameObject);
         }

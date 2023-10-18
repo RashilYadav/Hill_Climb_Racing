@@ -45,6 +45,7 @@ public class DriveCar : MonoBehaviour
 
     public void CarInputMobile(int dir)
     {
+        SoundScript.PlaySound("Vehicle_Car_Engine");
         direction = dir;
     }
 

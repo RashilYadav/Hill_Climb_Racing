@@ -18,6 +18,7 @@ public class CarSelectionScript : MonoBehaviour
     private int selectedCar;
     public GameObject[] carList;
 
+
     private void Awake()
     {
         CarSelectionCanvas.SetActive(false);
@@ -62,6 +63,7 @@ public class CarSelectionScript : MonoBehaviour
 
     public void switchCar(int switchCars)
     {
+        SoundScript.PlaySound("Button");
         currentCar += switchCars;
         chooseCar(currentCar);
     }
@@ -75,15 +77,25 @@ public class CarSelectionScript : MonoBehaviour
 
     public void playButton()
     {
-        CarSelectionCanvas.SetActive(true);
-        playCanvas.SetActive(false);
+        StartCoroutine(ActivateCanvasWithDelay());
     }
 
     public void StartGame()
     {
+        Debug.Log("Start playing Sound");
+        SoundScript.PlaySound("StartButtonSound");
         selectedCar = currentCar + 1;
         SceneManager.LoadScene("Scene" + selectedCar);
         CarSelectionCanvas.SetActive(false);
         playCanvas.SetActive(false);
     }
+
+    private IEnumerator ActivateCanvasWithDelay()
+    {
+        SoundScript.PlaySound("Button");
+        yield return new WaitForSeconds(0.8f); // Wait for the specified delay
+        CarSelectionCanvas.SetActive(true);
+        playCanvas.SetActive(false);
+    }
+
 }

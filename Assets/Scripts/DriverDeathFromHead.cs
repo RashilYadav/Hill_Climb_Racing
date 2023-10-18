@@ -8,6 +8,14 @@ public class DriverDeathFromHead : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
+            StartCoroutine(Died());
+        }
+
+        IEnumerator Died()
+        {
+            SoundScript.PlaySound("Bone_Crack");
+            yield return new WaitForSeconds(2f);
+           // SoundScript.audiosrc.Stop();
             GameManager.instance.GameOver();
         }
     }
